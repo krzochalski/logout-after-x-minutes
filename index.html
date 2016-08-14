@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout after X minutes - demo</title>
+
+    <link rel="stylesheet" href="dependencies/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-header">
+                    <h1>Logout after X minutes <small>Demo presentation</small></h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="alert-loggedin" class="alert alert-success" role="alert" style="display: none;">
+                    User is logged in. <a href="#" onclick="logout(event)" class="btn btn-xs btn-primary pull-right">Logout</a>
+                </div>
+                <div id="alert-loggedout" class="alert alert-warning" role="alert" style="display: none;">
+                    User is logged out. Please log in.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <form id="login-form" onsubmit="javascript: logIn(event)" style="display: none;">
+                    <div class="form-group">
+                        <label for="login-email">Login</label>
+                        <input type="text" class="form-control" id="login-email" value="admin">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" class="form-control" id="login-password" value="admin">
+                    </div>
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="logout-after-x-minutes.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
