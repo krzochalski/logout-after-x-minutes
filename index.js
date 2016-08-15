@@ -1,22 +1,17 @@
 var loginForm = document.getElementById('login-form');
 var alertLoggedIn = document.getElementById('alert-loggedin');
 var alertLoggedOut = document.getElementById('alert-loggedout');
-var alertTime = document.getElementById('alert-time');
-var alertTimeCount = document.getElementById('alert-time-count');
+var alertProgress = document.getElementById('alert-progress');
 
 function checkIfLogged() {
     if (localStorage.getItem('loginTime') !== null) {
-        console.log('is logged');
         loginForm.style.display = 'none';
         alertLoggedIn.style.display = 'block';
         alertLoggedOut.style.display = 'none';
-        alertTime.style.display = 'block';
     } else {
-        console.log('not logged');
         loginForm.style.display = 'block';
         alertLoggedIn.style.display = 'none';
         alertLoggedOut.style.display = 'block';
-        alertTime.style.display = 'none';
     }
 }
 
@@ -51,18 +46,23 @@ function countTimeToLogout(loginTime, timeUntilLogout) {
         timeDifference = reloadTime - loginTime,
         timeUntilLastLogin = timeDifference / 60000,
         timerUntilLogout = timeUntilLogout - timeUntilLastLogin;
+        timePercent = function () {
+            return (timerUntilLogout * 100) / timeUntilLogout;
+        };
 
-    alertTimeCount.innerHTML = timerUntilLogout;
+    alertProgress.style.width = timePercent() + '%';
     return timerUntilLogout;
 }
 
 function displayTimeToLogout() {
-    var time = Number(localStorage.getItem('loginTimeUntilLogin'));
-    var interval = 0;
+    var time = Number(localStorage.getItem('loginTimeUntilLogin')),
+        interval = 0;
+
     countTimeToLogout(localStorage.getItem('loginTime'), time);
+
     interval = setInterval(function () {
         countTimeToLogout(localStorage.getItem('loginTime'), time);
-        console.log('interval');
+
         if (countTimeToLogout(localStorage.getItem('loginTime'), time) <= 0) {
             clearInterval(interval);
             logoutAfterXMinutes(localStorage.getItem('loginTime'), time);

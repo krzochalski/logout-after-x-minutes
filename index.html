@@ -21,12 +21,15 @@
             <div class="col-sm-12">
                 <div id="alert-loggedin" class="alert alert-success" role="alert" style="display: none;">
                     User is logged in. <a href="#" onclick="clickLogout(event)" class="btn btn-xs btn-primary pull-right">Logout</a>
+                    <hr>
+                    <div class="progress">
+                        <div id="alert-progress" class="progress-bar progress-bar-striped progress-bar-warning active" role="progressbar">
+                            <strong>Logout</strong>
+                        </div>
+                    </div>
                 </div>
                 <div id="alert-loggedout" class="alert alert-warning" role="alert" style="display: none;">
                     User is logged out. Please log in.
-                </div>
-                <div id="alert-time" class="alert alert-info" role="alert" style="display: none;">
-                    Time until logout: <span id="alert-time-count"></span>
                 </div>
             </div>
         </div>
@@ -39,12 +42,12 @@
                         <input type="text" class="form-control" id="login-email" value="admin">
                     </div>
                     <div class="form-group">
-                        <label for="login-password">Time until logout (decimal)</label>
-                        <input type="number" class="form-control" id="login-time" placeholder="time" step="any">
-                    </div>
-                    <div class="form-group">
                         <label for="login-password">Password</label>
                         <input type="password" class="form-control" id="login-password" value="admin">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Time until logout (decimal)</label>
+                        <input type="number" class="form-control" id="login-time" placeholder="time" step="any" value="0.3">
                     </div>
                     <button type="submit" class="btn btn-default">Sign in</button>
                 </form>

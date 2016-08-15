@@ -14,7 +14,5 @@ function logoutAfterXMinutes(loginTime, timeUntilLogout) {
             logout();
             checkIfLogged();
         }
-    } else {
-        console.log('User is about to be logged out in ' + (timeUntilLogout - timeUntilLastLogin) + ' minutes.');
     }
 }
