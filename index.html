@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div id="alert-loggedin" class="alert alert-success" role="alert" style="display: none;">
-                    User is logged in. <a href="#" onclick="clickLogout(event)" class="btn btn-xs btn-primary pull-right">Logout</a>
+                    User is logged in. <a href="#" onclick="Authentication.clickLogout(event)" class="btn btn-xs btn-primary pull-right">Logout</a>
                     <hr>
                     <div class="progress">
                         <div id="alert-progress" class="progress-bar progress-bar-striped progress-bar-warning active" role="progressbar">
@@ -36,7 +36,7 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <form id="login-form" onsubmit="logIn(event)" style="display: none;">
+                <form id="login-form" onsubmit="Authentication.logIn(event)" style="display: none;">
                     <div class="form-group">
                         <label for="login-email">Login</label>
                         <input type="text" class="form-control" id="login-email" value="admin">

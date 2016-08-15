@@ -10,9 +10,10 @@ function logoutAfterXMinutes(loginTime, timeUntilLogout) {
     if (timeUntilLastLogin >= timeUntilLogout) {
         localStorage.clear();
         alert(timeUntilLogout + ' minutes since last login has passed. User was logged out automatically.');
-        if (logout() !== undefined) {
-            logout();
-            checkIfLogged();
+
+        if (Authentication.logout() !== undefined) {
+            Authentication.logout();
+            Authentication.checkIfLogged();
         }
     }
 }
